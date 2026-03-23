@@ -64,4 +64,4 @@ class Bag(Generic[T]):
 
     def __len__(self) -> int:
         """Support len(bag)."""
-        pass
+        return len(self._items)
