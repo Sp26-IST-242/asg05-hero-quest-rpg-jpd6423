@@ -66,5 +66,5 @@ class Bag(Generic[T]):
         """Support len(bag)."""
         return len(self._items)
     
-    def __repr__(self):
-        return super().__repr__()
+    def __repr__(self) -> str:
+        return f"Bag (capacity={self.capacity}, items={len(self._items)})"
