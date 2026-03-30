@@ -109,6 +109,8 @@ class Hero:
             True if equipped; False if weapon slots are full.
         """
         success: bool = self.equipped_weapons.add(weapon)
+        if success:
+            self.combat_log.append(f'{self.name} equipped {weapon.name}')
         return success
 
     def learn_skill(self, skill: str) -> bool:
@@ -149,7 +151,10 @@ class Hero:
 
     def total_damage_potential(self) -> int:
         """Sum damage of all currently equipped weapons."""
-        pass
+        damage: int = 0
+        for weapon in self.equipped_weapons.all():
+            damage += weapon.damage
+        return damage
 
     def top_kills(self, n: int = 3) -> list[tuple[str, int]]:
         """
