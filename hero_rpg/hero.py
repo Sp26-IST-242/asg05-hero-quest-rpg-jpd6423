@@ -79,7 +79,7 @@ class Hero:
 
         # losing HP
         self.health -= actual 
-        self.combat_log.append(f'{self.name} took {actual} damage HP: {self.health}/{self.max_health}')
+        self.combat_log.append(f'{self.name} took {actual} damage. HP: {self.health}/{self.max_health}')
         return actual
 
     def heal(self, amount: int) -> int:
@@ -92,7 +92,7 @@ class Hero:
         actual: int = min(self.max_health-self.health, amount)
 
         self.health += actual
-        self.combat_log.append(f'{self.name} healed {actual} HP: {self.health}/{self.max_health}')
+        self.combat_log.append(f'{self.name} healed {actual} HP. HP: {self.health}/{self.max_health}')
         return actual
 
     def is_alive(self) -> bool:
@@ -157,6 +157,7 @@ class Hero:
         Counter accumulates each enemy type; no manual initialization needed.
         """
         self.kill_counter[enemy_type] += 1
+        self.combat_log.append(f'{self.name} defeated a {enemy_type}! (Total {enemy_type} kills: {self.kill_counter[enemy_type]})')
 
     def total_damage_potential(self) -> int:
         """Sum damage of all currently equipped weapons."""
