@@ -21,7 +21,7 @@ from hero_rpg import Hero, Weapon, Item, WeaponType, ItemType
 def main() -> None:
     # ── Create hero ───────────────────────────────────────────────────────────
     hero = Hero("Aric", "Warrior", max_health=120)
-    print(hero)
+    # print(hero)
 
     # ── Equip weapons (Bag[Weapon], capacity 3) ───────────────────────────────
     sword  = Weapon("Iron Sword",    WeaponType.SWORD,  damage=30)

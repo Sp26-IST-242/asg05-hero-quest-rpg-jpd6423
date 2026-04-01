@@ -79,7 +79,7 @@ class Hero:
 
         # losing HP
         self.health -= actual 
-        self.combat_log.append(f'{self.name} took {actual} damage')
+        self.combat_log.append(f'{self.name} took {actual} damage HP: {self.health}/{self.max_health}')
         return actual
 
     def heal(self, amount: int) -> int:
@@ -92,7 +92,7 @@ class Hero:
         actual: int = min(self.max_health-self.health, amount)
 
         self.health += actual
-        self.combat_log.append(f'{self.name} healed {actual} HP')
+        self.combat_log.append(f'{self.name} healed {actual} HP: {self.health}/{self.max_health}')
         return actual
 
     def is_alive(self) -> bool:
@@ -182,3 +182,9 @@ class Hero:
             True if stat exists and was upgraded; False if key not found.
         """
         pass
+
+    def __repr__(self) -> str:
+        return (
+            f"Hero(name={self.name}"
+            f", class={self.hero_class}"
+            f", HP={self.health}/{self.max_health})")
